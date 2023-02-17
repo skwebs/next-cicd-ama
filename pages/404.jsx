@@ -21,7 +21,7 @@ const PageNotFound = () => {
         return () => {
             clearInterval(interval)
         }
-    }, [coutdown, setCoutdown])
+    }, [coutdown, setCoutdown, router])
 
     return (
         <>
