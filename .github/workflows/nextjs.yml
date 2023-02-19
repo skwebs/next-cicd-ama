@@ -27,13 +27,13 @@ jobs:
           node-version: 16
       - name: Install NPM Dependencies
         run: npm i
-      - name: Build Project
+      - name: Build and Export Static Project
         run: npm run build
       - name: Upload artifact in order to deploy
         uses: actions/upload-artifact@v3
         with:
           name: production-files
-          path: dist/
+          path: out
   # Deploy Job
   deploy:
     name: Deploy
@@ -46,15 +46,15 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: production-files
-          path: dist/
+          path: out
       - name: file location 
         run: pwd
-        working-directory: dist/
+        working-directory: out
       - name: rsync deployments
         uses: burnett01/rsync-deployments@5.2.1
         with:
           switches: -avzr --progress
-          path: dist/
+          path: out
           remote_path: ${{ secrets.DEPLOY_PATH }}
           remote_host: ${{ secrets.HOST }}
           remote_port: ${{ secrets.PORT }}
