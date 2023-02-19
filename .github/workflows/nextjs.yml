@@ -28,7 +28,7 @@ jobs:
       - name: Install NPM Dependencies
         run: npm i
       - name: Build and Export Static Project
-        run: npm run build
+        run: npm run export
       - name: Upload artifact in order to deploy
         uses: actions/upload-artifact@v3
         with:
