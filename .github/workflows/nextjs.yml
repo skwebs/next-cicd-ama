@@ -61,7 +61,7 @@ jobs:
           path: ./out
   # Deployment job
   deploy_gh:
-    name:Deploy to gh-page
+    name: Deploy to gh-page
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
