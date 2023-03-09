@@ -64,6 +64,7 @@ jobs:
         with:
           name: next-static-export
           path: ./out
+
   # Deployment job
   deploy_gh:
     name: Deploy to gh-page
